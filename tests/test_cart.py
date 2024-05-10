@@ -1,5 +1,5 @@
 import allure
-from selene import browser, have, query
+from selene import browser, have, be
 
 
 @allure.label("owner", "Глеб")
@@ -12,13 +12,8 @@ def test_add_first_display_to_cart():
         first_monitor = browser.all('.action-control').first.element('.btn-primary')
         first_monitor.click()
 
-    with (allure.step("Проверяем что первый монитор добавился в корзину")):
-
-        name_first_monitor_in_list = browser.all('.product stock-0'
-                                                 ).first.element('.image').element('.img-responsive').get(query.attribute("alt"))
-        pass
-        # name_monitor_in_cart =
-        # assert name_first_monitor_in_list == name_monitor_in_cart
+    with (allure.step("Проверяем что монитор добавился в корзину")):
+        browser.element('.cartMenu .cartRespons').should(have.text('1 ТОВАР')).hover()
 
 
 @allure.label("owner", "Глеб")
@@ -30,9 +25,8 @@ def test_del_display_to_cart():
     with allure.step("Открываем корзину"):
         browser.element('#cart-link').click()
 
-    # with allure.step("Удаляем монитор из корзины"):
-    #     browser.element('.miniCartDelete').element('.delA').click()
-    #     pass
+    with allure.step("Удаляем монитор из корзины"):
+        browser.element('.dropdown-menu .delA').click()
 
     with allure.step("Проверяем что монитор удалился из корзины"):
-        pass
+        browser.element('.cartMenu .cartRespons').should(be.not_.visible)
