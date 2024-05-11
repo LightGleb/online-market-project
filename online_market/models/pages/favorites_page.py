@@ -10,14 +10,9 @@ class FavoritesPage:
         return self
 
     def del_product(self):
-        with allure.step("Удаляем товар со страницы с избранным и проверяем что удалился"):
+        with allure.step("Удаляем товар со страницы с избранным"):
             products = browser.element('#productsList')
-            uid = products.all('.item').first.element('.tag-fav-close').get(query.attribute('data-uid'))
             products.all('.item').first.element('.tag-fav-close').click()
-            uid_after = products.all('.item').first.element('.tag-fav-close').get(query.attribute('data-uid'))
-
-        with allure.step("Проверяем что товар удалился удалился"):
-            assert uid != uid_after
         return self
 
     def clear_list(self):

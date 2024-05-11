@@ -12,15 +12,7 @@ class ComparePage:
     def del_product(self):
         with allure.step("Удаляем товар со страницы сравнения"):
             products = browser.element('#details')
-            uid = products.all('.compare-prd-img-wrap').first.element('.tag-compare-close'
-                                                                      ).get(query.attribute('data-uid'))
             products.all('.compare-prd-img-wrap').first.element('.tag-compare-close').click()
-
-            uid_after = products.all('.compare-prd-img-wrap').first.element('.tag-compare-close'
-                                                                            ).get(query.attribute('data-uid'))
-
-        with allure.step("Проверяем что товар удалился"):
-            assert uid != uid_after
         return self
 
     def clear_list(self):

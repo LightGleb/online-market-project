@@ -9,6 +9,8 @@ def test_del_display_in_favorites_page(add_first_display_in_favorites):
     favorites_page.open()
     favorites_page.del_product()
 
+    favorites_page.should_clear_list()
+
 
 def test_clear_list_in_favorites_page(add_first_display_in_favorites):
     favorites_page.open()

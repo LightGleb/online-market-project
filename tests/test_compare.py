@@ -10,6 +10,8 @@ def test_del_display_in_compare_page(add_first_display_to_compare):
     compare_page.open()
     compare_page.del_product()
 
+    compare_page.should_clear_list()
+
 
 @allure.label("owner", "Глеб")
 @allure.severity("Высокий")
