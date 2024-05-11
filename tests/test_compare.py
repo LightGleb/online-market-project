@@ -1,5 +1,4 @@
 import allure
-from selene import browser, have, command, query
 
 from online_market.models.pages.compare_page import compare_page
 
