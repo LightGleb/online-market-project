@@ -15,13 +15,6 @@ class CartMenu:
             browser.element('.cartMenu .cartRespons').should(have.text('1 ТОВАР')).hover()
         return self
 
-    # def open(self):
-    #     with allure.step("Открываем корзину"):
-    #         browser.element('#cart-link').click()
-    #
-    #     with allure.step("Проверяем что корзина открылась"):
-    #         browser.element('.cartMenu .cartRespons').should(be.visible)
-
     def del_product(self):
         with allure.step("Удаляем монитор из корзины"):
             browser.element('.dropdown-menu .delA').click()

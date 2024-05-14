@@ -1,5 +1,6 @@
 import os
 
+import allure
 import pytest
 from dotenv import load_dotenv
 
