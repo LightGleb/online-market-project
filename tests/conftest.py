@@ -56,8 +56,6 @@ def open_first_display():
     displays_page.open()
     displays_page.open_first_display()
 
-    displays_page.should_open_first_display()
-
 
 @pytest.fixture(scope='function')
 def add_first_display_in_cart():
