@@ -1,3 +1,5 @@
+import os
+
 import pytest
 
 from selenium import webdriver
@@ -22,8 +24,11 @@ def setup_browser():
         }
     }
     options.capabilities.update(selenoid_capabilities)
+
+    login = os.getenv('SELENOID_LOGIN')
+    password = os.getenv('SELENOID_PASS')
     driver = webdriver.Remote(
-        command_executor=f"https://user1:1234@selenoid.autotests.cloud/wd/hub",
+        command_executor=f'https://{login}:{password}@selenoid.autotests.cloud/wd/hub',
         options=options
     )
 
