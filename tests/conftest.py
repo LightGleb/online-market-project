@@ -1,6 +1,7 @@
 import os
 
 import pytest
+from dotenv import load_dotenv
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -10,6 +11,8 @@ from online_market.models.pages.cart_menu import cart_menu
 from online_market.models.pages.display_page import display_page
 from online_market.models.pages.displays_page import displays_page
 from online_market.utils import attach
+
+load_dotenv()
 
 
 @pytest.fixture(scope='function', autouse=True)
@@ -33,8 +36,8 @@ def setup_browser():
     )
 
     browser.config.driver = driver
-    browser.config.window_height = 1920
-    browser.config.window_width = 1080
+    browser.config.window_height = 1080
+    browser.config.window_width = 1920
     browser.config.base_url = "https://www.online-market.by"
 
     yield browser
