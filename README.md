@@ -43,7 +43,7 @@
 ---
 
 #### Интеграция с Jira
-![This is an image](design/images/jira_ui.png)
+![This is an image](pictures/jira_ui.png)
 
 ---
 
