@@ -1,5 +1,5 @@
 import allure
-from selene import browser, have, query
+from selene import browser, have
 
 
 class FavoritesPage:
